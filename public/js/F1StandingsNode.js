@@ -1,7 +1,7 @@
 const https = require('https');
 const schedule = require('node-schedule');
 
-const job = schedule.scheduleJob('46 * * * *', function () {
+const job = schedule.scheduleJob('54 * * * *', function () {
 
     let req = https.get("https://ergast.com/api/f1/current/driverStandings.json", function (res) {
         let data = '',

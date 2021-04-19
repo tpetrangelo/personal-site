@@ -1,6 +1,5 @@
 $.getJSON("https://ergast.com/api/f1/current/driverStandings.json", function (res) {
 
-    console.log("Findings Standings");
     var racerCount = 0;
 
     let standings_data_object = res.MRData.StandingsTable.StandingsLists[0].DriverStandings;

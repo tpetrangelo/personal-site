@@ -9,6 +9,9 @@
   "author": "Tom Petrangelo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "node-schedule": "^2.0.0"
   }
 }

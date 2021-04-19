@@ -1,5 +1,3 @@
-const prem_key = prem_key_config;
-
 
 const schedule = require('node-schedule');
 const http = require("https");
@@ -15,7 +13,7 @@ const options = {
     "port": null,
     "path": "/v3/standings?season=2020&league=39",
     "headers": {
-        "x-rapidapi-key": prem_key_config,
+        "x-rapidapi-key": process.env.PREM_KEY,
         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
         "useQueryString": true
     }
@@ -23,11 +21,7 @@ const options = {
 
 const teams = [];
 
-app.post('/', (req, res) => {
-    return res.send('Received a POST HTTP method');
-  });
-
-const job = schedule.scheduleJob('23 * * * *', function () {
+const job = schedule.scheduleJob('37 * * * *', function () {
     const req = http.request(options, function (res) {
         const chunks = [];
         var teamCount = 0;

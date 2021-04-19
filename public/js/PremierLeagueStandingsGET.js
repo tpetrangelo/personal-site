@@ -1,15 +1,14 @@
-const prem_key = prem_key_config;
-
 const settings = {
 	"async": true,
 	"crossDomain": true,
 	"url": "https://api-football-v1.p.rapidapi.com/v3/standings?season=2020&league=39",
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "75919517e8msh6f38343bd218c91p1f01c8jsn2ad36a52ad96",
+        "x-rapidapi-key": process.env.PREM_KEY,
 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com"
 	}
 };
+
 
 $.ajax(settings).done(function (res) {
     var teamCount = 0;
