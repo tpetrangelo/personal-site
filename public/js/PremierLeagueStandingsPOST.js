@@ -1,5 +1,4 @@
 
-const schedule = require('node-schedule');
 const http = require("https");
 var express = require("express");
 var app = express();
@@ -21,7 +20,6 @@ const options = {
 
 const teams = [];
 
-const job = schedule.scheduleJob('37 * * * *', function () {
     const req = http.request(options, function (res) {
         const chunks = [];
         var teamCount = 0;
@@ -59,4 +57,3 @@ const job = schedule.scheduleJob('37 * * * *', function () {
     });
 
     req.end();
-});
