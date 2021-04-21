@@ -20,40 +20,41 @@ const options = {
 
 const teams = [];
 
-    const req = http.request(options, function (res) {
-        const chunks = [];
-        var teamCount = 0;
+const req = http.request(options, function (res) {
+    const chunks = [];
+    var teamCount = 0;
 
-        res.on("data", function (chunk) {
-            chunks.push(chunk);
-        });
-
-        res.on("end", function () {
-            const body = Buffer.concat(chunks);
-            let standings_data_object = JSON.parse(body).response[0].league.standings[0];
-
-            
-
-            standings_data_object.forEach(element => {
-                
-                let rank = ++teamCount;
-                let teamName = element.team.name;
-                let points = element.points;
-                
-                let teamsEntry = {
-                    "rank" : rank,
-                    "teamName" : teamName,
-                    "points" : points
-                }
-
-                teams.push(teamsEntry);                
-            });
-
-            console.log(teams);
-
-
-
-        });
+    res.on("data", function (chunk) {
+        chunks.push(chunk);
     });
 
-    req.end();
+    res.on("end", function () {
+        const body = Buffer.concat(chunks);
+        let standings_data_object = JSON.parse(body).response[0].league.standings[0];
+
+
+
+        standings_data_object.forEach(element => {
+
+            let rank = ++teamCount;
+            let teamName = element.team.name;
+            let points = element.points;
+
+            let teamsEntry = {
+                "rank": rank,
+                "teamName": teamName,
+                "points": points
+            }
+
+
+            teams.push(teamsEntry);
+        });
+
+    });
+
+
+
+
+});
+
+req.end();

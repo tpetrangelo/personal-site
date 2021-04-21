@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname));
 
+
 app.listen(port, () => {
     console.log("Server listening on port " + port);
 });
