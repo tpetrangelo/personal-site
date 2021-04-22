@@ -1,12 +1,12 @@
 
-const settings = {
+const prem_settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/premier_league",
+    "url": "http://localhost:3000/premier_league_standings",
     "method": "GET",
 };
 
-$.ajax(settings).done(function (res) {
+$.ajax(prem_settings).done(function (res) {
     var teamCount = 0;
     let standings_data_object = res;
 

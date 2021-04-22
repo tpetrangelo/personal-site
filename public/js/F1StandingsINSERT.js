@@ -17,24 +17,15 @@ const client = new Client({
   sslmode: require,
 })
 
-const options = {
-    "method": "GET",
-    "hostname": "api-football-v1.p.rapidapi.com",
-    "port": null,
-    "path": "/v3/standings?season=2020&league=39",
-    "headers": {
-        "x-rapidapi-key": process.env.PREM_KEY,
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "useQueryString": true
-    }
-};
 
 
 
-let teams = '';
 
-const req = http.request(options, function (res) {
+let drivers = '';
+
+const req = http.get('https://ergast.com/api/f1/current/driverStandings.json', function (res) {
     const chunks = [];
+    var teamCount = 0;
 
     res.on("data", function (chunk) {
         chunks.push(chunk);
@@ -42,28 +33,28 @@ const req = http.request(options, function (res) {
 
     res.on("end", function () {
         const body = Buffer.concat(chunks);
-        let standings_data_object = JSON.parse(body).response[0].league.standings[0];
-
-        var rank = 0;
-
+        let standings_data_object = JSON.parse(body).MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        var racerCount = 0;
 
         standings_data_object.forEach((element, index, array) => {
-            let teamsEntry = '';
-            ++rank;
-            let teamName = element.team.name;
+            racerCount++;
+            let firstName = element.Driver.givenName;
+            let lastName = element.Driver.familyName;
+            let driverName = firstName + ' ' + lastName;
+            let constructor = element.Constructors[0].name;
             let points = element.points;
 
             if(index === (array.length -1)){
-                teamsEntry = '(' + rank + ',\'' + teamName + '\',' + points + ');';
+                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' +points + ');';
             }else{
-                teamsEntry = '(' + rank + ',\'' + teamName + '\',' + points + '),';
+                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' +points + '),';
             }
 
 
-            teams += teamsEntry;
+            drivers += driverEntry;
         });
             client.connect()
-            client.query('DELETE FROM premier_league_standings WHERE rank > 0; INSERT INTO premier_league_standings(rank, team, points) VALUES' + teams, (err, res) => {
+            client.query('DELETE FROM f1_standings WHERE rank > 0; INSERT INTO f1_standings(rank, driver, constructor, points) VALUES' + drivers, (err, res) => {
                 console.log(err, res)
             client.end()
             })

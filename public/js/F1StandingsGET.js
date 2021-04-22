@@ -1,31 +1,39 @@
-$.getJSON("https://ergast.com/api/f1/current/driverStandings.json", function (res) {
+const f1_settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:3000/f1_standings",
+    "method": "GET",
+};
 
+$.ajax(f1_settings).done(function (res) {
     var racerCount = 0;
-
-    let standings_data_object = res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    let standings_data_object = res;
 
     standings_data_object.forEach(element => {
         racerCount++;
-        let firstName = element.Driver.givenName;
-        let lastName = element.Driver.familyName;
-        let constructor = element.Constructors[0].name;
+        let driverName = element.driver;
+        let constructor = element.constructor;
         let points = element.points;
 
         if (constructor == "McLaren") {
             $('<tr>').append(
                 $('<td class="text-center table-success">').text(racerCount),
-                $('<td class="text-center table-success">').text(firstName + ' ' + lastName),
+                $('<td class="text-center table-success">').text(driverName),
                 $('<td class="text-center table-success">').text(constructor),
                 $('<td class="text-center table-success">').text(points)).appendTo('#F1Table');
 
         } else {
             $('<tr>').append(
                 $('<td class="text-center">').text(racerCount),
-                $('<td class="text-center">').text(firstName + ' ' + lastName),
+                $('<td class="text-center">').text(driverName),
                 $('<td class="text-center">').text(constructor),
                 $('<td class="text-center">').text(points)).appendTo('#F1Table');
         }
 
 
+
     });
+
+
+
 });
