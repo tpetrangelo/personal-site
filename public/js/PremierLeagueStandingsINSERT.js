@@ -1,10 +1,21 @@
-
+const path = require('path');
+require('dotenv').config(({path: path.resolve(__dirname, '../../.env') }));
 const http = require("https");
 var express = require("express");
 var app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const { Client } = require('pg')
+const client = new Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DB,
+  password: process.env.DB_PW,
+  port: process.env.DB_PORT,
+  ssl: true,
+  sslmode: require,
+})
 
 const options = {
     "method": "GET",
@@ -18,7 +29,9 @@ const options = {
     }
 };
 
-const teams = [];
+
+
+let teams = '';
 
 const req = http.request(options, function (res) {
     const chunks = [];
@@ -35,26 +48,29 @@ const req = http.request(options, function (res) {
 
 
         standings_data_object.forEach(element => {
-
+            let teamsEntry = '';
             let rank = ++teamCount;
             let teamName = element.team.name;
             let points = element.points;
 
-            let teamsEntry = {
-                "rank": rank,
-                "teamName": teamName,
-                "points": points
+            if(rank != 20){
+                teamsEntry = '(' + rank + ',\'' + teamName + '\',' + points + '),';
+            }else{
+                teamsEntry = '(' + rank + ',\'' + teamName + '\',' + points + ');';
             }
 
 
-            teams.push(teamsEntry);
+            teams += teamsEntry;
         });
-
+            client.connect()
+            client.query('DELETE FROM premier_league_standings WHERE rank > 0; INSERT INTO premier_league_standings(rank, team, points) VALUES' + teams, (err, res) => {
+                console.log(err, res)
+            client.end()
+            })
     });
 
 
 
 
 });
-
 req.end();
