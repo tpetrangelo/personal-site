@@ -2,7 +2,7 @@
 const prem_settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/premier_league_standings",
+    "url": "https://www.tompetrangelo.com/premier_league_standings",
     "method": "GET",
 };
 

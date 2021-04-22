@@ -1,7 +1,7 @@
 const f1_settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/f1_standings",
+    "url": "https://www.tompetrangelo.com/f1_standings",
     "method": "GET",
 };
 
