@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config(({path: path.resolve(__dirname, '../../.env') }));
+require('dotenv').config(({ path: path.resolve(__dirname, '../../.env') }));
 const http = require("https");
 var express = require("express");
 var app = express();
@@ -8,13 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const { Client } = require('pg')
 const client = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DB,
-  password: process.env.DB_PW,
-  port: process.env.DB_PORT,
-  ssl: true,
-  sslmode: require,
+    connectionstring: process.env.DATABASE_URL,
+    ssl: true,
+    sslmode: require,
 })
 
 
@@ -44,20 +40,20 @@ const req = http.get('https://ergast.com/api/f1/current/driverStandings.json', f
             let constructor = element.Constructors[0].name;
             let points = element.points;
 
-            if(index === (array.length -1)){
-                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' +points + ');';
-            }else{
-                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' +points + '),';
+            if (index === (array.length - 1)) {
+                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' + points + ');';
+            } else {
+                driverEntry = '(' + racerCount + ',\'' + driverName + '\',' + '\'' + constructor + '\',' + points + '),';
             }
 
 
             drivers += driverEntry;
         });
-            client.connect()
-            client.query('DELETE FROM f1_standings WHERE rank > 0; INSERT INTO f1_standings(rank, driver, constructor, points) VALUES' + drivers, (err, res) => {
-                console.log(err, res)
+        client.connect()
+        client.query('DELETE FROM f1_standings WHERE rank > 0; INSERT INTO f1_standings(rank, driver, constructor, points) VALUES' + drivers, (err, res) => {
+            console.log(err, res)
             client.end()
-            })
+        })
     });
 
 
