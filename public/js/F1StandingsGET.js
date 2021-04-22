@@ -1,5 +1,6 @@
 const f1_settings = {
     "async": true,
+    "crossDomain": false,
     "url": "https://www.tompetrangelo.com/f1_standings",
     "method": "GET",
 };
