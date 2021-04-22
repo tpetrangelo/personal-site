@@ -6,9 +6,7 @@ var port = process.env.PORT || 3000;
 const { Pool } = require('pg')
 
 const pool = new Pool({
-    connectionString: process.env.DB_URI || process.env.DATABASE_URL,
-    ssl: true,
-    sslmode: require,
+    connectionstring: process.env.DATABASE_URL
 })
 
 app.use(express.json());

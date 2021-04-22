@@ -9,8 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 const { Client } = require('pg')
 const client = new Client({
   connectionstring: process.env.DATABASE_URL,
-  ssl: true,
-  sslmode: require,
 })
 
 const options = {
