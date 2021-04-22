@@ -7,8 +7,6 @@ const { Pool } = require('pg')
 
 const pool = new Pool({
     connectionString: process.env.DB_URI,
-    ssl: process.env.DB_URI ? true : false,
-    sslmode: require,
 })
 
 app.use(express.json());
