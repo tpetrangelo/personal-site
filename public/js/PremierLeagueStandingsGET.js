@@ -10,6 +10,8 @@ $.ajax(prem_settings).done(function (res) {
     var teamCount = 0;
     let standings_data_object = res;
 
+    $(".PremLoad").remove();
+
     standings_data_object.forEach(element => {
 
         let teamName = element.team;

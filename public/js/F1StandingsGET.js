@@ -9,6 +9,9 @@ $.ajax(f1_settings).done(function (res) {
     var racerCount = 0;
     let standings_data_object = res;
 
+    $(".F1Load").remove();
+
+
     standings_data_object.forEach(element => {
         racerCount++;
         let driverName = element.driver;
