@@ -1,4 +1,6 @@
 const path = require('path');
+import date from 'date-and-time'
+
 require('dotenv').config(({path: path.resolve(__dirname, '../../.env') }));
 const http = require("https");
 var express = require("express");
@@ -31,6 +33,8 @@ const req = http.get('https://ergast.com/api/f1/current/driverStandings.json', f
     });
 
     res.on("end", function () {
+        const now = new Date();
+        console.log("Obtaining Premier League Standings at: ", date.format(now, 'MM/DD/YYYY HH:mm:ss'));
         const body = Buffer.concat(chunks);
         let standings_data_object = JSON.parse(body).MRData.StandingsTable.StandingsLists[0].DriverStandings;
         var racerCount = 0;

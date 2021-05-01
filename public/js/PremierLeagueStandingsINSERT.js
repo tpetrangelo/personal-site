@@ -1,4 +1,6 @@
 const path = require('path');
+import date from 'date-and-time'
+
 require('dotenv').config(({path: path.resolve(__dirname, '../../.env') }));
 const http = require("https");
 var express = require("express");
@@ -40,6 +42,8 @@ const req = http.request(options, function (res) {
     });
 
     res.on("end", function () {
+        const now = new Date();
+        console.log("Obtaining Premier League Standings at: ", date.format(now, 'MM/DD/YYYY HH:mm:ss'));
         const body = Buffer.concat(chunks);
         let standings_data_object = JSON.parse(body).response[0].league.standings[0];
 
