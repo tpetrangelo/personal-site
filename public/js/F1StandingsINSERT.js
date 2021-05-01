@@ -1,5 +1,5 @@
 const path = require('path');
-import date from 'date-and-time'
+const date = require('date-and-time');
 
 require('dotenv').config(({path: path.resolve(__dirname, '../../.env') }));
 const http = require("https");
