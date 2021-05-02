@@ -31,8 +31,14 @@
           <li class="nav-item">
             <a class="nav-link" style="color:#FFF" href="#home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color:#FFF" href="#experience">Experience</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color:#FFF" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              Experience
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#education">Education</a></li>
+              <li><a class="dropdown-item" href="#professional_experience">Professional Experience</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:#FFF" href="#projects">Projects</a>
@@ -62,7 +68,7 @@
 <body>
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   <br>
-  <div class="container" id="about_me">
+  <div class="container" id="home">
     <div class="row">
       <div class="col-sm-4 d-flex flex-column justify-content-center align-items-center">
         <a class="nav-link" href="https://www.linkedin.com/in/thomaspetrangelo/">
@@ -83,8 +89,9 @@
       </div>
     </div>
   </div>
+
   <p id="experience" class="display-5 text-center">Experience</p>
-  <p class="h2 text-center">Education</p>
+  <p class="h2 text-center" id="education">Education</p>
   <div class="container border">
     <div class = "row" style="background-color: #F47C30; color: #002E62;">
       <div class="h3 col-sm text-center">
@@ -209,7 +216,7 @@
   </div>
   
   <br>
-  <p class="h2 text-center">Professional Experience</p>
+  <p class="h2 text-center" id="professional_experience">Professional Experience</p>
 
   <p class="lead">
   <p class="h5">Deloitte - Solutions Engineering Analyst</p>
