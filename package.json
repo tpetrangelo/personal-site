@@ -1,23 +1,25 @@
 {
   "name": "personal-site",
   "version": "1.0.0",
-  "description": "Tom's Personal Site",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node public/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tom Petrangelo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tpetrangelo/personal-site"
+    "url": "git+https://github.com/tpetrangelo/personal-site.git"
   },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tpetrangelo/personal-site/issues"
+  },
+  "homepage": "https://github.com/tpetrangelo/personal-site#readme",
   "dependencies": {
     "date-and-time": "^1.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "jquery": "^3.6.0",
     "pg": "^8.6.0"
   }
 }
