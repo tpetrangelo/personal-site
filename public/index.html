@@ -31,14 +31,11 @@
           <li class="nav-item">
             <a class="nav-link" style="color:#FFF" href="#">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="color:#FFF" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Experience
-            </a>
-            <ul class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item navbar-dark bg-dark" style="color:#FFF" href="#education">Education</a></li>
-              <li><a class="dropdown-item navbar-dark bg-dark" style="color:#FFF" href="#professional_experience">Professional Experience</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" style="color:#FFF" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:#FFF" href="#professional_experience">Professional Experience</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:#FFF" href="#projects">Projects</a>
@@ -90,11 +87,7 @@
     </div>
   </div>
 
-  <div>
-    <u><p id="experience" class="display-5 text-center">Experience</p></u>
-  </div>
-
-  <p class="display-6 text-center" id="education">Education</p>
+  <u><p class="display-6 text-center" id="education">Education</p></u>
   <div class="container border">
     <div class = "row" style="background-color: #F47C30; color: #002E62;">
       <div class="h4 col-sm text-center">
@@ -219,7 +212,7 @@
   </div>
   
   <br>
-  <p class="display-6 text-center" id="professional_experience">Professional Experience</p>
+  <u><p class="display-6 text-center" id="professional_experience">Professional Experience</p></u>
 
   <p class="lead">
   <p class="h5">Deloitte - Solutions Engineering Analyst</p>
@@ -250,7 +243,7 @@
     <u><h1 id="projects" class="display-5 text-center">Projects</h1></u>
   </div>
 
-  <b><u>Personal Webite (You Are Here!)</u></b>
+  <b><u>tompetrangelo.com</u></b>
   <br>Personal Website built to work on both front end and back end development. Built using Node.js and PostgreSQL, and deployed to Heroku. Endpoints created using Express.JS. Heroku Scheduler is used to update Premier League and F1 Standings. 
   Both sets of standings are updated once an hour and sent to their respective PostgreSQL tables (provided by Heroku) to limit the amount of calls to their API. On site load, standings tables are updated to the most recent PostgreSQL tables to create a "live" hourly 
   standings update. 
