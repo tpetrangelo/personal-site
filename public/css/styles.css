@@ -28,3 +28,9 @@ ul.no-bullets {
 #myBtn:hover {
   background-color: #C9BD9F;
 }
+
+
+img:hover{
+ filter: brightness(75%);
+}
+
