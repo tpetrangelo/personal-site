@@ -30,7 +30,7 @@ ul.no-bullets {
 }
 
 
-img:hover{
+.hoverImage:hover{
  filter: brightness(75%);
 }
 
