@@ -18,7 +18,7 @@ ul.no-bullets {
   font-size: 14px;
   border: none;
   outline: none;
-  background-color: #EFDFBB;
+  background-color: #efdfbb;
   color: black;
   cursor: pointer;
   padding: 10px;
@@ -26,19 +26,18 @@ ul.no-bullets {
 }
 
 #myBtn:hover {
-  background-color: #C9BD9F;
+  background-color: #c9bd9f;
 }
 
-
-.hoverImage:hover{
- filter: brightness(75%);
+.hoverImage:hover {
+  filter: brightness(75%);
 }
 
-.carousel-inner img { 
-  max-width:100%;
-  max-height:100%;
-  width: auto; 
-  height: auto; 
-  margin:auto; 
-  vertical-align:middle; 
+.carousel-inner img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+  vertical-align: middle;
 }
