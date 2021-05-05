@@ -61,3 +61,7 @@ body{
 p, h4, h5, a, u, th, td, li, .headers{
   color: #dee8ec;
 }
+
+.cs-interest-header{
+  text-align: center;
+}
