@@ -20,17 +20,17 @@ $.ajax(f1_settings).done(function (res) {
 
         if (constructor == "McLaren") {
             $('<tr>').append(
-                $('<td class="text-center table-success text-responsive">').text(racerCount),
-                $('<td class="text-center table-success text-responsive">').text(driverName),
-                $('<td class="text-center table-success text-responsive">').text(constructor),
-                $('<td class="text-center table-success text-responsive">').text(points)).appendTo('#F1Table');
+                $('<td class="text-center table-success">').text(racerCount),
+                $('<td class="text-center table-success">').text(driverName),
+                $('<td class="text-center table-success">').text(constructor),
+                $('<td class="text-center table-success">').text(points)).appendTo('#F1Table');
 
         } else {
             $('<tr>').append(
-                $('<td class="text-center text-responsive">').text(racerCount),
-                $('<td class="text-center text-responsive">').text(driverName),
-                $('<td class="text-center text-responsive">').text(constructor),
-                $('<td class="text-center text-responsive">').text(points)).appendTo('#F1Table');
+                $('<td class="text-center">').text(racerCount),
+                $('<td class="text-center">').text(driverName),
+                $('<td class="text-center">').text(constructor),
+                $('<td class="text-center">').text(points)).appendTo('#F1Table');
         }
 
 
