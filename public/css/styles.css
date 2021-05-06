@@ -55,7 +55,7 @@ body{
 
 .inner-body-background{
   background: #01212c;
-  max-width: 95%;
+  max-width: 90%;
 }
 
 p, h1, h4, h5, a, u, th, td, li, .headers{
@@ -74,7 +74,6 @@ p, h1, h4, h5, a, u, th, td, li, .headers{
 .banner-area{
   width:100%;
   height:100vh;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(back-img.jpg);
   background-size:cover;
 }        
 
