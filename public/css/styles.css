@@ -58,7 +58,7 @@ body{
   max-width: 95%;
 }
 
-p, h4, h5, a, u, th, td, li, .headers{
+p, h1, h4, h5, a, u, th, td, li, .headers{
   color: #dee8ec;
 }
 
