@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" style="color:#ebf2ff" href="#">Home</a>
+            <a class="nav-link" style="color:#ebf2ff" href="#headshot">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:#ebf2ff" href="#education">Education</a>
@@ -66,20 +66,22 @@
 </head>
 
 <body>
-  <div class="px-5 py-5 my-5 text-center">
-    <h1 class="display-1 fw-bold">Tom Petrangelo</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="display-5">Welcome!</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+
+  <div class="banner-area">
+    <div class="content-area">
+      <div class="content">
+        <h1>Tom Petrangelo</h1>
+
+        <p>Welcome!</p>
+        <a href="#headshot">
+          <img src="images/logos/outline_arrow_downward_white_24dp.png" class="hoverImage"/>
+        </a>
       </div>
     </div>
   </div>
 
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-  <br>
-  <br>
-  <br>
-  <br>
+
   <div class="container inner-body-background border">
     <div class="container inner-body">
       <div class="container" id="home">
@@ -87,7 +89,7 @@
           <div class="col d-flex flex-column justify-content-center align-items-center">
             <a class="nav-link" href="https://www.linkedin.com/in/thomaspetrangelo/">
               <div class="headshot_container">
-                <img src="images/logos/blank-profile-picture-973460_1280.png" class="hoverImage">
+                <img src="images/logos/blank-profile-picture-973460_1280.png" class="hoverImage" id="headshot">
               </div>
             </a>
 
@@ -494,14 +496,15 @@
                   <td>
                     <ul class="no-bullets align-items-center">
                       <li>
-                        <a href="http://radio.garden/visit/boston-ma/m9daGUqC" target="_blank" >Radio
+                        <a href="http://radio.garden/visit/boston-ma/m9daGUqC" target="_blank">Radio
                           Garden</a>
                       </li>
                       <li>
-                        <a href="https://www.reddit.com/r/redditdev/about.json" target="_blank">Reddit Dev Active Users</a>
+                        <a href="https://www.reddit.com/r/redditdev/about.json" target="_blank">Reddit Dev Active
+                          Users</a>
                       </li>
                       <li>
-                        <a href="https://map.blitzortung.org/#1/15.1/8" target="_blank" >Lightning
+                        <a href="https://map.blitzortung.org/#1/15.1/8" target="_blank">Lightning
                           Tracker</a>
                       </li>
                       <li>
@@ -534,7 +537,7 @@
                         <a href="https://overthewire.org/wargames/bandit/bandit0.html" target="_blank">Over The Wire</a>
                       </li>
                       <li>
-                        <a href="https://tryhackme.com/" target="_blank" >Try Hack Me</a>
+                        <a href="https://tryhackme.com/" target="_blank">Try Hack Me</a>
                       </li>
                       <li>
                         <a href="https://www.youtube.com/c/JohnHammond010" target="_blank">John
@@ -587,7 +590,8 @@
               <h1 class="h4 text-center" style="background-color: #ECF0F6; color: #333436;">F1 Standings</h1>
             </u>
             <div class="table justify-content-center">
-              <table id="F1Table" class="table table-responsive table-bordered mx-auto justify-content-center align-items-center">
+              <table id="F1Table"
+                class="table table-responsive table-bordered mx-auto justify-content-center align-items-center">
                 <tr>
                   <th scope="col" class="text-center">P</th>
                   <th scope="col" class="text-center">Driver</th>
