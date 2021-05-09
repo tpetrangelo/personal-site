@@ -27,7 +27,7 @@ app.listen(port, () => {
   console.log("Server listening on port " + port);
 });
 
-async function listPremStandings(res) {
+async function listPremStandings(req, res) {
   try {
     const db = await pool.connect();
     const result = await db.query("SELECT * FROM premier_league_standings");
@@ -39,7 +39,7 @@ async function listPremStandings(res) {
   }
 }
 
-async function listF1Standings(res) {
+async function listF1Standings(req, res) {
   try {
     const db = await pool.connect();
     const result = await db.query("SELECT * FROM f1_standings");
@@ -51,7 +51,7 @@ async function listF1Standings(res) {
   }
 }
 
-async function thumbnailEndpoint(res) {
+async function thumbnailEndpoint(req, res) {
   try {
     res.sendFile("images/thumbnail/thumbnail.png");
   } catch (err) {
