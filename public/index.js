@@ -21,12 +21,13 @@ app.use(express.static(__dirname));
 
 app.get("/premier_league_standings", (req, res) => listPremStandings(req, res));
 app.get("/f1_standings", (req, res) => listF1Standings(req, res));
+app.get("/thumbnail", (req, res) => thumbnailEndpoint(req, res));
 
 app.listen(port, () => {
   console.log("Server listening on port " + port);
 });
 
-async function listPremStandings(req, res) {
+async function listPremStandings(res) {
   try {
     const db = await pool.connect();
     const result = await db.query("SELECT * FROM premier_league_standings");
@@ -38,12 +39,21 @@ async function listPremStandings(req, res) {
   }
 }
 
-async function listF1Standings(req, res) {
+async function listF1Standings(res) {
   try {
     const db = await pool.connect();
     const result = await db.query("SELECT * FROM f1_standings");
     res.send(result.rows);
     db.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+}
+
+async function thumbnailEndpoint(res) {
+  try {
+    res.sendFile("images/thumbnail/thumbnail.png");
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
