@@ -21,7 +21,10 @@ app.use(express.static(__dirname));
 
 app.get("/premier_league_standings", (req, res) => listPremStandings(req, res));
 app.get("/f1_standings", (req, res) => listF1Standings(req, res));
-app.get("/thumbnail", (req, res) => thumbnailEndpoint(req, res));
+
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/images/thumbnail/thumbnail.png");
+});
 
 app.listen(port, () => {
   console.log("Server listening on port " + port);
@@ -45,15 +48,6 @@ async function listF1Standings(req, res) {
     const result = await db.query("SELECT * FROM f1_standings");
     res.send(result.rows);
     db.release();
-  } catch (err) {
-    console.error(err);
-    res.send("Error " + err);
-  }
-}
-
-async function thumbnailEndpoint(req, res) {
-  try {
-    res.sendFile(__dirname, "../images/thumbnail/thumbnail.png");
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
