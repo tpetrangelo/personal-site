@@ -53,9 +53,7 @@ async function listF1Standings(req, res) {
 
 async function thumbnailEndpoint(req, res) {
   try {
-    res.sendFile({
-      path: path.resolve(__dirname, "../images/thumbnail/thumbnail.png"),
-    });
+    res.sendFile(__dirname, "../images/thumbnail/thumbnail.png");
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
