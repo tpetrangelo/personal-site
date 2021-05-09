@@ -22,7 +22,7 @@ app.use(express.static(__dirname));
 app.get("/premier_league_standings", (req, res) => listPremStandings(req, res));
 app.get("/f1_standings", (req, res) => listF1Standings(req, res));
 
-app.get("/", function (req, res) {
+app.get("/thumbnail", function (req, res) {
   res.sendFile(__dirname + "/images/thumbnail/thumbnail.png");
 });
 
