@@ -22,7 +22,7 @@ const options = {
     "method": "GET",
     "hostname": "api-football-v1.p.rapidapi.com",
     "port": null,
-    "path": "/v3/standings?season=2021&league=39",
+    "path": "/v3/standings?season=2022&league=39",
     "headers": {
         "x-rapidapi-key": process.env.PREM_KEY,
         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
