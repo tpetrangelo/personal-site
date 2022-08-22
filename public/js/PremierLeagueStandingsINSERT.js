@@ -19,15 +19,15 @@ const client = new Client({
 })
 
 const options = {
-    "method": "GET",
-    "hostname": "api-football-v1.p.rapidapi.com",
-    "port": null,
-    "path": "/v3/standings?season=2022&league=39",
-    "headers": {
-        "x-rapidapi-key": process.env.PREM_KEY,
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "useQueryString": true
-    }
+	"method": "GET",
+	"hostname": "api-football-v1.p.rapidapi.com",
+	"port": null,
+	"path": "/v3/standings?season=2022&league=39",
+	"headers": {
+		"X-RapidAPI-Key": process.env.PREM_KEY,
+		"X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+		"useQueryString": true
+	}
 };
 
 
